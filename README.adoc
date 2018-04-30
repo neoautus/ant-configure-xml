@@ -1,0 +1,53 @@
+= Ant Configure
+// Copyright 2018 NEOautus Ltd. (http://neoautus.com)
+//
+// Licensed under the Apache License, Version 2.0 (the "License"); you may not
+// use this file except in compliance with the License. You may obtain a copy of
+// the License at
+//
+// http://www.apache.org/licenses/LICENSE-2.0
+//
+// Unless required by applicable law or agreed to in writing, software
+// distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+// WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+// License for the specific language governing permissions and limitations under
+// the License.
+
+Central repository to keep base `configure.xml` and all its shameful trickery.
+
+=== Ant targets
+
+TODO: Describe it before Sun goes nova.
+
+These are the available targets:
+
+* `ant build-stage`: build the stage with Apache Karaf ready to run the examples
+* `ant build-all`: builds all available subprojects;
+* `ant clean`: removes the `build` and `dist` directories;
+* `ant zero`: same as `clean`, but also removes the `cache` directory with all downloaded tools;
+* `ant configure`: rebuild the library and tools cache.
+
+== Key Directories and Files
+
+Important directories to be aware of:
+
+* `cache` - stores the downloaded jars, custom tasks and other tools;
+* `stage` - the local Apache Karaf installation built to test the subprojects.
+
+== Important Resources
+
+Although these references are almost everywhere, they are important here because we're heavily OSGi-oriented.
+
+Be aware that you can find a lot more features to build OSGi projects on BND Tools.
+
+Marcond's notes: Unfortunatelly I'm still not prepared to deal with my addiction to Ant, that's why it's used. There are no religious issues here :)
+
+* http://bndtools.org/[BND Tools^]: The standard OSGi tool to build artifacts.
+* http://njbartlett.name/osgibook.html[OSGi in Practice^]: Free, Creative Commons-licensed book on OSGi by Neil Bartlett.
+* https://www.osgi.org/developer/resources/learning-resources-tutorials/tutorial-archive/[Tutorial Archive from OSGi Alliance^]: Lots of great articles and resources.
+* https://www.osgi.org/developer/specifications/[OSGi Specifications^]: All OSGi specifications available from OSGi Alliance.
+* https://www.osgi.org/osgi-release-5-javadoc/[OSGi Release 5 Javadoc^]: Browse online the javadocs for OSGi R5 APIs.
+
+== Copyright
+
+This work is licensed under a http://www.apache.org/licenses/LICENSE-2.0[Apache License, Version 2.0].
