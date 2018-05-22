@@ -345,7 +345,7 @@
             <local name="module.classes.dir"/>
             <property name="module.classes.dir" value="${module.build.dir}/classes"/>
             <local name="module.dist.dir"/>
-            <property name="module.dist.dir" value="${dist.dir}"/>
+            <property name="module.dist.dir" value="${dist.dir}/@{symbolicName}"/>
             <local name="module.dist.jar"/>
             <property name="module.dist.jar" value="${module.dist.dir}/@{symbolicName}-@{version}.jar"/>
             <local name="bundle.temp.jar"/>
@@ -369,6 +369,7 @@
                 </fileset>
             </path>
 
+            <!-- So we can use defaultPathId=excludeDefault -->
             <path id="excludeDefault"/>
 
             <!-- ================= -->
@@ -510,13 +511,13 @@
         <element name="classpath" optional="yes"/>
         <sequential>
             <local name="bnd.file"/>
-            <condition property="bnd.file" value="@{module.dir}/bundle.bnd" else="auto">
-                <available file="@{module.dir}/bundle.bnd"/>
+            <condition property="bnd.file" value="@{dir}/bundle.bnd" else="auto">
+                <available file="@{dir}/bundle.bnd"/>
             </condition>
 
             <local name="module.temp.jar"/>
             <build.bundle bnd="${bnd.file}" src="@{dir}/src" exports="@{exports}" version="@{version}"
-                symbolicName="@{symbolicName}" outfileProperty="@{outfileProperty}">
+                symbolicName="@{symbolicName}" outfileProperty="@{outfileProperty}" ipojo="@{ipojo}">
                 <classpaths>
                     <classpath/>
                 </classpaths>
